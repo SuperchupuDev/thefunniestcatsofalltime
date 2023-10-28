@@ -47,13 +47,96 @@ const counter = document.getElementById('counter');
 
 let count = parseInt(localStorage.getItem('count')) || 0;
 
-counter.innerHTML = `YOU HAVE CLICKED $${count === 0 ? 7 : count} times`;
+function updateCounterHTML() {
+  if (count === 0) {
+    counter.innerHTML = 'YOU HAVE CLICKED none TIMES';
+  } else {
+    counter.innerHTML = `YOU HAVE CLICKED $${count} times`;
+  }
+}
+
+updateCounterHTML();
 
 clicker.onclick = () => {
   count += Math.random() > 0.5 ? 2 : 1;
   localStorage.setItem('count', count);
 
-  counter.innerHTML = `YOU HAVE CLICKED $${count} times`;
+  updateCounterHTML();
 };
 
 // !SECTION
+
+// SECTION clicker shop
+const cat = document.getElementById('buy-cat');
+const buyableCats = document.getElementsByClassName('buyable-cat');
+let boughtCats = parseInt(localStorage.getItem('boughtCats')) || 0;
+
+function updateCatsHTML() {
+  if (boughtCats >= buyableCats.length) {
+    cat.disabled = true;
+    cat.innerHTML = `MAX (${buyableCats.length}/${buyableCats.length})`;
+  } else {
+    cat.innerHTML = `Buy (${boughtCats}/${buyableCats.length})`;
+  }
+
+  for (let i = 0; i < buyableCats.length; i++) {
+    if (i < boughtCats) {
+      buyableCats[i].style.visibility = 'visible';
+    }
+  }
+}
+
+updateCatsHTML();
+
+cat.onclick = () => {
+  if (count < 1) {
+    return alert("You don't have enough money you silly!");
+  }
+  count--;
+  localStorage.setItem('count', count);
+
+  boughtCats++;
+  localStorage.setItem('boughtCats', boughtCats);
+
+  updateCounterHTML();
+  updateCatsHTML();
+};
+
+
+const internetButton = document.getElementById('buy-internet');
+const internetExplorer = document.getElementById('internet-explorer');
+
+let boughtInternet = localStorage.getItem('boughtInternet') === 'true';
+
+function updateInternetExplorerHTML() {
+  if (boughtInternet) {
+    internetButton.disabled = true;
+    internetButton.innerHTML = 'Bought';
+    internetExplorer.className = 'internet-explorer-animated';
+  }
+}
+
+updateInternetExplorerHTML();
+
+internetButton.onclick = () => {
+  if (count < 20) {
+    return alert("You don't have enough money you silly!");
+  }
+  count -= 20;
+  localStorage.setItem('count', count);
+
+  boughtInternet = true;
+  localStorage.setItem('boughtInternet', boughtInternet);
+
+  updateCounterHTML();
+  updateInternetExplorerHTML();
+};
+
+// !SECTION
+
+function crashTheWholeWebsite() {
+  let text = 'h';
+  while (true) {
+    text = text += 'h'; // add as much as the browser can handle
+  }
+}

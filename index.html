@@ -21,20 +21,25 @@
   <button id="clicker" style="font-size: 30px;">CLICK HERE TO FIND OUT</button>
   <br>
   <label id="counter">
-  YOU HAVE CLICKED 7 times
+  YOU HAVE CLICKED none TIMES
 </label>
 </div>
 </div>
 <div id="banners">
-  <img src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/internet-explorer-1996.gif" height="30">
+  <img id="internet-explorer" src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/internet-explorer-1996.gif" height="30">
   <img src="https://www.webdesignmuseum.org/uploaded/exhibitions/web-banners-in-the-90s/netscape-1995.gif" height="30">
 </div>
   <br>
   <br>
   <marquee scrollamount="50">
-  <img id="banan" style="height: 200px;" src="img/banan.jpg">
-  <img id="banan" style="height: 200px;" src="img/wunkymcwunk.png">
-  <img id="banan" style="height: 200px;" src="img/poorpeople.jpg">
+  <img style="height: 200px;" src="img/banan.jpg">
+  <img style="height: 200px;" src="img/wunkymcwunk.png">
+  <img style="height: 200px;" src="img/poorpeople.jpg">
+  <img class="buyable-cat" style="height: 200px;" src="img/ugly.jpg">
+  <img class="buyable-cat" style="height: 200px;" src="img/luigi.jpg">
+  <img class="buyable-cat" style="height: 200px;" src="img/darkoirl.jpg">
+  <img class="buyable-cat" style="height: 200px;" src="img/makurus-cat.jpg">
+  <img class="buyable-cat" style="height: 200px;" src="img/me.jpg">
 </marquee>
 <br>
 <div id="apples-shop">
@@ -50,9 +55,26 @@
     <th></th>
   </tr>
   <tr>
-    <td>Add cat</td>
+    <td>Add cat to cat train</td>
     <td>$1.00</td>
-    <td><button>Buy</button></td>
+    <td>
+      <button id="buy-cat">Buy</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Make Internet Explorer logo rotate</td>
+    <td>$20.00</td>
+    <td>
+      <button id="buy-internet">Buy</button>
+    </td>
+  </tr>
+  <tr>
+    <td>Crash the whole website for no reason</td>
+    <td>$0.00 (Discount)</td>
+    <td>
+      <button onclick="crashTheWholeWebsite()">Buy</button>
+    </td>
+  </tr>
 </table>
 <br>
 <table>
