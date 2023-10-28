@@ -1,0 +1,32 @@
+body {
+  background-size: 30%;
+  background-image: url("https://media.tenor.com/GoNQ5sLCtiAAAAAC/mauzimice-mauzymice.gif");
+  background-attachment: fixed;
+  background-blend-mode: hue;
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+#download {
+  padding: 10px;
+  color: white;
+}
+
+#download-ico {
+  visibility: hidden;
+}
+
+#cats, #apples-newest-emoji {
+  float: left;
+}
+
+#buttonpress, #shop {
+  vertical-align: middle;
+  background-color: yellow;
+  margin-left: 900px;
+}
+
+#banners {
+  clear: both;
+  display: block;
+  position: relative;
+}
