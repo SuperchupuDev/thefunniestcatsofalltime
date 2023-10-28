@@ -35,12 +35,25 @@ body {
   animation: rotation 4s infinite linear;
 }
 
+.internet-explorer-animated:hover, #art {
+  animation: inverse-rotation 4s infinite linear;
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(359deg);
+  }
+}
+
+@keyframes inverse-rotation {
+  from {
+    transform: rotate(359deg);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 

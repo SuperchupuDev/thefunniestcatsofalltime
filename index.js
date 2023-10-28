@@ -20,24 +20,25 @@ setInterval(() => {
 
 // SECTION rustscript download
 
-const audio2 = new Audio('https://www.midis101.com/play-midi/66570-crazy-frog-axel.mp3');
-audio2.playbackRate = 1.25;
-audio2.loop = true;
 const download = document.getElementById('download');
+const audio = new Audio('https://www.midis101.com/play-midi/66570-crazy-frog-axel.mp3');
+audio.playbackRate = 1.25;
+audio.loop = true;
+
+download.onclick = () => {
+  if (!audio.paused) {
+    audio.pause();
+    document.getElementById('download-ico').style.visibility = 'hidden';
+  } else {
+    audio.play();
+    document.getElementById('download-ico').style.visibility = 'visible';
+  }
+};
 
 setInterval(() => {
   const hex = Math.floor(Math.random() * 16777215).toString(16);
   download.style.backgroundColor = `#${hex}`;
 }, 50);
-download.onclick = () => {
-  if (!audio2.paused) {
-    audio2.pause();
-    document.getElementById('download-ico').style.visibility = 'hidden';
-  } else {
-    audio2.play();
-    document.getElementById('download-ico').style.visibility = 'visible';
-  }
-};
 
 // !SECTION
 
