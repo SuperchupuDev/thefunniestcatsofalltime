@@ -25,7 +25,7 @@ body {
   margin-left: 900px;
 }
 
-#banners {
+#banners, #puter {
   clear: both;
   display: block;
   position: relative;
@@ -59,4 +59,19 @@ body {
 
 .buyable-cat {
   visibility: hidden;
+}
+
+figure {
+  background-color: #ffffff;
+  border: thin #c0c0c0 solid;
+  display: flex;
+  flex-flow: column;
+  padding: 5px;
+  margin: auto;
+}
+
+figcaption {
+  background-color: #ffffff;
+  padding: 3px;
+  text-align: center;
 }
