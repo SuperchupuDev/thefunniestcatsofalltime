@@ -1,7 +1,8 @@
-// SECTION madeline presents
+// SECTION madeline presents & kitty speed
 
 const presentation = document.getElementById('presentation');
 const catText = document.getElementById('cats');
+const kitty = document.getElementById('kitty');
 
 let n = 0;
 
@@ -11,6 +12,7 @@ setInterval(() => {
 
   // console.log(presentationOpacity, catsOpacity);
 
+  kitty.scrollAmount = 30 * catsOpacity + 20;
   presentation.style.opacity = presentationOpacity / 0.95 + 0.05;
   catText.style.opacity = catsOpacity / 0.35 + 0.65;
   n < 2 * Math.PI ? (n += 0.01) : (n = 0);
@@ -18,9 +20,10 @@ setInterval(() => {
 
 // !SECTION
 
-// SECTION rustscript download
+// SECTION rustscript download AND animate color class
 
 const download = document.getElementById('download');
+const color = document.getElementsByClassName('color');
 const audio = new Audio('https://www.midis101.com/play-midi/66570-crazy-frog-axel.mp3');
 audio.playbackRate = 1.25;
 audio.loop = true;
@@ -38,6 +41,9 @@ download.onclick = () => {
 setInterval(() => {
   const hex = Math.floor(Math.random() * 16777215).toString(16);
   download.style.backgroundColor = `#${hex}`;
+  for (const element of color) {
+    element.style.color = `#${hex}`;
+  }
 }, 50);
 
 // !SECTION
