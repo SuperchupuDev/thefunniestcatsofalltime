@@ -141,6 +141,38 @@ internetButton.onclick = () => {
 
 // !SECTION
 
+// SECTION canny & uncanny cats
+
+const uncanny = document.getElementById('uncanny');
+const cannyButton = document.getElementById('canny-button');
+const congrats = document.getElementById('congrats');
+const skull = document.getElementById('skull');
+
+// TODO: change to deltarune explosion sound
+const badToTheBone = new Audio('sounds/bad_to_the_bone.mp3');
+
+let opacity = 1;
+cannyButton.onclick = () => {
+  opacity -= 0.1;
+  uncanny.style.opacity = opacity;
+  if (opacity < 0.1) {
+    badToTheBone.play();
+    cannyButton.disabled = true;
+    congrats.style.visibility = 'visible';
+    skull.style.visibility = 'visible';
+  }
+}
+
+setInterval(() => {
+  if (opacity > 1 || opacity < 0.1) {
+    return;
+  }
+  opacity += 0.01;
+  uncanny.style.opacity = opacity;
+}, 100);
+
+// !SECTION
+
 function crashTheWholeWebsite() {
   let text = 'h';
   while (true) {

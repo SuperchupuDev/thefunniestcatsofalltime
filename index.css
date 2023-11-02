@@ -75,3 +75,19 @@ figcaption {
   padding: 3px;
   text-align: center;
 }
+
+#canny {
+  position: relative;
+}
+
+#uncanny {
+  position: absolute;
+  left: 0px;
+  opacity: 1;
+}
+
+#skull {
+  position: absolute;
+  left: 250px;
+  visibility: hidden;
+}
