@@ -91,3 +91,12 @@ figcaption {
   left: 250px;
   visibility: hidden;
 }
+
+#luigi-div {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  align-items: center;
+}

@@ -109,7 +109,6 @@ cat.onclick = () => {
   updateCatsHTML();
 };
 
-
 const internetButton = document.getElementById('buy-internet');
 const internetExplorer = document.getElementById('internet-explorer');
 
@@ -161,7 +160,7 @@ cannyButton.onclick = () => {
     congrats.style.visibility = 'visible';
     skull.style.visibility = 'visible';
   }
-}
+};
 
 setInterval(() => {
   if (opacity > 1 || opacity < 0.1) {
@@ -170,6 +169,27 @@ setInterval(() => {
   opacity += 0.01;
   uncanny.style.opacity = opacity;
 }, 100);
+
+// !SECTION
+
+// SECTION make luigi dance
+const luigi = document.getElementById('luigi');
+const luigiButton = document.getElementById('luigi-button');
+
+// this took like an hour to make
+let angle = 0;
+luigiButton.onclick = () => {
+  setInterval(() => {
+    const cos = (Math.cos(3 * angle) + 1) / 2;
+    const sin = (Math.sin(3 * angle) + 1) / 2;
+    // god save us all
+    luigi.style.transform = `rotate(${angle}rad) scaleX(${0.85 + cos * 0.15}) scaleY(${0.85 + sin * 0.15})`;
+    angle += 0.01256;
+  }, 10);
+
+  luigiButton.innerText = 'wow';
+  luigiButton.disabled = true;
+};
 
 // !SECTION
 
