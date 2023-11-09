@@ -251,6 +251,10 @@ document.onkeydown = async event => {
 
   if (!enabled && event.shiftKey && event.key === 'C') {
     const secret = document.getElementById('secret');
+    // firefox doesnt count control + keydown as an interaction :D
+    secret.onclick = () => {
+      secret.play();
+    };
     document.body.style.overflow = 'hidden';
     secret.style.visibility = 'visible';
     secret.play();
