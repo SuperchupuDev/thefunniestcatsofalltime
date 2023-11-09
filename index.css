@@ -92,6 +92,12 @@ figcaption {
   visibility: hidden;
 }
 
+#coolest-kitty-in-town {
+  position: absolute;
+  left: 500px;
+  width: 0px;
+}
+
 #luigi-div {
   display: flex;
   justify-content: center;

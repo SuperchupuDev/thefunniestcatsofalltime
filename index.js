@@ -146,17 +146,22 @@ const uncanny = document.getElementById('uncanny');
 const cannyButton = document.getElementById('canny-button');
 const congrats = document.getElementById('congrats');
 const skull = document.getElementById('skull');
+const coolestKitty = document.getElementById('coolest-kitty-in-town');
 
 // TODO: change to deltarune explosion sound
 const badToTheBone = new Audio('sounds/bad_to_the_bone.mp3');
+
+const kittyMaxWidth = 1000;
 
 let opacity = 1;
 cannyButton.onclick = () => {
   opacity -= 0.1;
   uncanny.style.opacity = opacity;
+  coolestKitty.style.width = `${kittyMaxWidth * (1 - opacity)}px`;
   if (opacity < 0.1) {
     badToTheBone.play();
     cannyButton.disabled = true;
+    coolestKitty.style.width = `${kittyMaxWidth}px`;
     congrats.style.visibility = 'visible';
     skull.style.visibility = 'visible';
   }
@@ -168,6 +173,7 @@ setInterval(() => {
   }
   opacity += 0.01;
   uncanny.style.opacity = opacity;
+  coolestKitty.style.width = `${kittyMaxWidth * (1 - opacity)}px`;
 }, 100);
 
 // !SECTION
@@ -192,6 +198,34 @@ luigiButton.onclick = () => {
 };
 
 // !SECTION
+
+// SECTION secrets
+let enabled = false;
+document.onkeydown = event => {
+  if (!enabled && event.ctrlKey && event.altKey && event.shiftKey && event.key === 'L') {
+    enabled = true;
+    replaceInText(document.body, 'n', '');
+    document.body.style.backgroundImage = 'url(img/luigi.jpg)';
+  }
+};
+
+// function taken from https://stackoverflow.com/a/50537862
+function replaceInText(element, pattern, replacement) {
+  for (let node of element.childNodes) {
+    switch (node.nodeType) {
+      case Node.ELEMENT_NODE:
+        replaceInText(node, pattern, replacement);
+        break;
+      case Node.TEXT_NODE:
+        node.textContent = node.textContent
+          .replaceAll(pattern, replacement)
+          .replaceAll(pattern.toUpperCase(), replacement.toUpperCase());
+        break;
+      case Node.DOCUMENT_NODE:
+        replaceInText(node, pattern, replacement);
+    }
+  }
+}
 
 function crashTheWholeWebsite() {
   let text = 'h';
